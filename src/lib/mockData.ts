@@ -13,9 +13,9 @@ export type EmailSource = {
 export const emailSources: EmailSource[] = [
   {
     id: "e1",
-    sender: "reports@northgate-mall.com",
-    subject: "Daily Sales Report — Northgate",
-    outlet: "Northgate Mall",
+    sender: "reports@allinpharmacy.com",
+    subject: "Daily Sales Report — Allin Pharmacy",
+    outlet: "Allin Pharmacy",
     receivedAt: "08:02 AM",
     format: "CSV",
     rowCount: 142,
@@ -23,17 +23,17 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["item_code", "item_name", "qty_sold", "unit_price", "trx_date"],
       rows: [
-        ["SKU-1001", "Classic Tee — Black", 12, 24.0, "2026-05-03"],
-        ["SKU-1042", "Slim Jeans — Indigo", 5, 58.0, "2026-05-03"],
-        ["SKU-2210", "Canvas Sneaker", 3, 72.0, "2026-05-03"],
+        ["SKU-1001", "Paracetamol 500mg — 20s", 24, 4.5, "2026-05-03"],
+        ["SKU-1042", "Ibuprofen 200mg — 24s", 12, 6.8, "2026-05-03"],
+        ["SKU-2210", "Vitamin C 1000mg — 30s", 8, 14.0, "2026-05-03"],
       ],
     },
   },
   {
     id: "e2",
-    sender: "pos-export@riverside.store",
+    sender: "pos-export@greenleaf-rx.com",
     subject: "Sales_Export_05-03.xlsx",
-    outlet: "Riverside Plaza",
+    outlet: "Greenleaf Pharmacy",
     receivedAt: "08:14 AM",
     format: "XLSX",
     rowCount: 98,
@@ -41,17 +41,17 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["Product SKU", "Description", "Units", "Gross $", "Date"],
       rows: [
-        ["1001", "Tee Black", 8, 192.0, "05/03/2026"],
-        ["2210", "Sneaker Canvas", 4, 288.0, "05/03/2026"],
-        ["3301", "Hoodie Grey M", 6, 396.0, "05/03/2026"],
+        ["1001", "Paracetamol 500mg", 18, 81.0, "05/03/2026"],
+        ["2210", "Vitamin C 1000mg", 9, 126.0, "05/03/2026"],
+        ["3301", "Cough Syrup 100ml", 6, 47.4, "05/03/2026"],
       ],
     },
   },
   {
     id: "e3",
-    sender: "manager@harbor-outlet.co",
+    sender: "manager@wellcare-chemist.co",
     subject: "today's numbers",
-    outlet: "Harbor Outlet",
+    outlet: "Wellcare Chemist",
     receivedAt: "08:31 AM",
     format: "PDF Table",
     rowCount: 67,
@@ -59,17 +59,17 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["Code", "Name", "Sold", "Price"],
       rows: [
-        ["1042", "Slim Jeans Indigo", "7 pcs", "$58"],
-        ["3301", "Hoodie Grey M", "11 pcs", "$66"],
-        ["4400", "Cap Logo", "9 pcs", "$22"],
+        ["1042", "Ibuprofen 200mg", "14 pcs", "$6.80"],
+        ["3301", "Cough Syrup 100ml", "9 pcs", "$7.90"],
+        ["4400", "Hand Sanitizer 250ml", "16 pcs", "$5.20"],
       ],
     },
   },
   {
     id: "e4",
-    sender: "auto@summit-store.io",
+    sender: "auto@medicore-pharmacy.io",
     subject: "EOD-2026-05-03",
-    outlet: "Summit Center",
+    outlet: "Medicore Pharmacy",
     receivedAt: "08:45 AM",
     format: "CSV",
     rowCount: 113,
@@ -77,9 +77,9 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["sku;name;qty;price"],
       rows: [
-        ["1001;Classic Tee Black;15;24.00"],
-        ["2210;Canvas Sneaker;6;72.00"],
-        ["4400;Cap Logo;12;22.00"],
+        ["1001;Paracetamol 500mg;30;4.50"],
+        ["2210;Vitamin C 1000mg;11;14.00"],
+        ["4400;Hand Sanitizer 250ml;22;5.20"],
       ],
     },
   },
@@ -98,15 +98,15 @@ export type ConsolidatedRow = {
 };
 
 const products = [
-  { sku: "SKU-1001", name: "Classic Tee — Black", category: "Apparel", price: 24 },
-  { sku: "SKU-1042", name: "Slim Jeans — Indigo", category: "Apparel", price: 58 },
-  { sku: "SKU-2210", name: "Canvas Sneaker", category: "Footwear", price: 72 },
-  { sku: "SKU-3301", name: "Hoodie Grey — M", category: "Apparel", price: 66 },
-  { sku: "SKU-4400", name: "Cap — Logo", category: "Accessories", price: 22 },
-  { sku: "SKU-5510", name: "Tote Bag — Natural", category: "Accessories", price: 18 },
+  { sku: "SKU-1001", name: "Paracetamol 500mg — 20s", category: "Pain Relief", price: 4.5 },
+  { sku: "SKU-1042", name: "Ibuprofen 200mg — 24s", category: "Pain Relief", price: 6.8 },
+  { sku: "SKU-2210", name: "Vitamin C 1000mg — 30s", category: "Vitamins", price: 14 },
+  { sku: "SKU-3301", name: "Cough Syrup 100ml", category: "Cold & Flu", price: 7.9 },
+  { sku: "SKU-4400", name: "Hand Sanitizer 250ml", category: "Personal Care", price: 5.2 },
+  { sku: "SKU-5510", name: "Antiseptic Cream 30g", category: "First Aid", price: 8.5 },
 ];
 
-const outlets = ["Northgate Mall", "Riverside Plaza", "Harbor Outlet", "Summit Center"];
+const outlets = ["Allin Pharmacy", "Greenleaf Pharmacy", "Wellcare Chemist", "Medicore Pharmacy"];
 
 export const consolidatedRows: ConsolidatedRow[] = (() => {
   const rows: ConsolidatedRow[] = [];
