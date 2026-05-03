@@ -138,7 +138,7 @@ export const ConsolidatedTable = () => {
             </tr>
           </thead>
           <tbody>
-            {filtered.map((r, i) => (
+            {filtered.slice(0, 200).map((r, i) => (
               <tr
                 key={r.id}
                 className={cn(
