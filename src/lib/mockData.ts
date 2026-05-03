@@ -10,6 +10,34 @@ export type EmailSource = {
   rowCount: number;
 };
 
+const products = [
+  { sku: "FLV-VC1000", name: "Flavettes Vitamin C 1000mg — 30s", category: "Vitamins", price: 38.9 },
+  { sku: "FLV-EFV", name: "Flavettes Effervescent Vitamin C — 15s", category: "Vitamins", price: 24.5 },
+  { sku: "FLV-GLOW", name: "Flavettes Glow Vitamin C + E — 30s", category: "Beauty", price: 52.0 },
+  { sku: "FLV-ENRG", name: "Flavettes Energy Multivitamin — 30s", category: "Vitamins", price: 45.6 },
+  { sku: "FLV-IMUN", name: "Flavettes Immune Booster — 30s", category: "Immunity", price: 49.9 },
+  { sku: "FLV-ZINC", name: "Flavettes Zinc + Vitamin C — 20s", category: "Immunity", price: 29.8 },
+];
+
+// Generate 1000 independent pharmacy outlet names
+const outletPrefixes = [
+  "Allin", "Greenleaf", "Wellcare", "Medicore", "Healthpoint", "Caring", "Vita", "Pulse",
+  "Sunrise", "Harbor", "Summit", "Northgate", "Riverside", "Oakridge", "Maple", "Pinecrest",
+  "Lakeside", "Hillcrest", "Bayview", "Brookside", "Cedar", "Westwood", "Eastfield", "Southport",
+  "Goldcoast", "Silverleaf", "Bluebell", "Rosewood", "Crystal", "Meadow", "Highland", "Parkway",
+  "Plaza", "Central", "Metro", "Unity", "Trust", "Prime", "Apex", "Grace",
+];
+const outletSuffixes = ["Pharmacy", "Chemist", "Drugstore", "Rx", "Apothecary", "Health"];
+
+const outlets: string[] = [];
+for (let i = 0; i < 1000; i++) {
+  const prefix = outletPrefixes[i % outletPrefixes.length];
+  const suffix = outletSuffixes[Math.floor(i / outletPrefixes.length) % outletSuffixes.length];
+  const branchNum = Math.floor(i / (outletPrefixes.length * outletSuffixes.length)) + 1;
+  const branch = branchNum === 1 ? "" : ` #${String(branchNum).padStart(2, "0")}`;
+  outlets.push(`${prefix} ${suffix}${branch}`);
+}
+
 export const emailSources: EmailSource[] = [
   {
     id: "e1",
@@ -23,9 +51,9 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["item_code", "item_name", "qty_sold", "unit_price", "trx_date"],
       rows: [
-        ["SKU-1001", "Paracetamol 500mg — 20s", 24, 4.5, "2026-05-03"],
-        ["SKU-1042", "Ibuprofen 200mg — 24s", 12, 6.8, "2026-05-03"],
-        ["SKU-2210", "Vitamin C 1000mg — 30s", 8, 14.0, "2026-05-03"],
+        ["FLV-VC1000", "Flavettes Vit C 1000mg 30s", 24, 38.9, "2026-05-03"],
+        ["FLV-GLOW", "Flavettes Glow 30s", 8, 52.0, "2026-05-03"],
+        ["FLV-ZINC", "Flavettes Zinc + C 20s", 12, 29.8, "2026-05-03"],
       ],
     },
   },
@@ -41,9 +69,9 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["Product SKU", "Description", "Units", "Gross $", "Date"],
       rows: [
-        ["1001", "Paracetamol 500mg", 18, 81.0, "05/03/2026"],
-        ["2210", "Vitamin C 1000mg", 9, 126.0, "05/03/2026"],
-        ["3301", "Cough Syrup 100ml", 6, 47.4, "05/03/2026"],
+        ["VC1000", "Flavettes Vitamin C 1000", 18, 700.2, "05/03/2026"],
+        ["EFV", "Flavettes Effervescent", 9, 220.5, "05/03/2026"],
+        ["ENRG", "Flavettes Energy", 6, 273.6, "05/03/2026"],
       ],
     },
   },
@@ -59,9 +87,9 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["Code", "Name", "Sold", "Price"],
       rows: [
-        ["1042", "Ibuprofen 200mg", "14 pcs", "$6.80"],
-        ["3301", "Cough Syrup 100ml", "9 pcs", "$7.90"],
-        ["4400", "Hand Sanitizer 250ml", "16 pcs", "$5.20"],
+        ["GLOW", "Flavettes Glow C+E", "14 pcs", "$52.00"],
+        ["IMUN", "Flavettes Immune", "9 pcs", "$49.90"],
+        ["ZINC", "Flavettes Zinc + C", "16 pcs", "$29.80"],
       ],
     },
   },
@@ -77,9 +105,9 @@ export const emailSources: EmailSource[] = [
     rawPreview: {
       headers: ["sku;name;qty;price"],
       rows: [
-        ["1001;Paracetamol 500mg;30;4.50"],
-        ["2210;Vitamin C 1000mg;11;14.00"],
-        ["4400;Hand Sanitizer 250ml;22;5.20"],
+        ["VC1000;Flavettes Vit C 1000mg;30;38.90"],
+        ["EFV;Flavettes Effervescent;11;24.50"],
+        ["ENRG;Flavettes Energy;22;45.60"],
       ],
     },
   },
@@ -97,23 +125,12 @@ export type ConsolidatedRow = {
   date: string;
 };
 
-const products = [
-  { sku: "SKU-1001", name: "Paracetamol 500mg — 20s", category: "Pain Relief", price: 4.5 },
-  { sku: "SKU-1042", name: "Ibuprofen 200mg — 24s", category: "Pain Relief", price: 6.8 },
-  { sku: "SKU-2210", name: "Vitamin C 1000mg — 30s", category: "Vitamins", price: 14 },
-  { sku: "SKU-3301", name: "Cough Syrup 100ml", category: "Cold & Flu", price: 7.9 },
-  { sku: "SKU-4400", name: "Hand Sanitizer 250ml", category: "Personal Care", price: 5.2 },
-  { sku: "SKU-5510", name: "Antiseptic Cream 30g", category: "First Aid", price: 8.5 },
-];
-
-const outlets = ["Allin Pharmacy", "Greenleaf Pharmacy", "Wellcare Chemist", "Medicore Pharmacy"];
-
 export const consolidatedRows: ConsolidatedRow[] = (() => {
   const rows: ConsolidatedRow[] = [];
   let i = 0;
   outlets.forEach((outlet) => {
     products.forEach((p) => {
-      const units = 2 + ((outlet.length + p.sku.length) % 14);
+      const units = 1 + ((outlet.length * 7 + p.sku.length * 3 + i) % 28);
       rows.push({
         id: `r${i++}`,
         outlet,
