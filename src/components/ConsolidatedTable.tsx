@@ -158,6 +158,13 @@ export const ConsolidatedTable = () => {
                 </td>
               </tr>
             ))}
+            {filtered.length > 200 && (
+              <tr>
+                <td colSpan={6} className="px-5 py-3 text-center text-xs text-muted-foreground bg-secondary/30">
+                  Showing first 200 of {filtered.length.toLocaleString()} rows · export to get all
+                </td>
+              </tr>
+            )}
             {filtered.length === 0 && (
               <tr>
                 <td colSpan={6} className="px-5 py-12 text-center text-sm text-muted-foreground">
