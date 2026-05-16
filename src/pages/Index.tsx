@@ -275,8 +275,8 @@ const Index = () => {
                       CH
                     </div>
                     <div className="text-sm">
-                      <p className="font-medium">Commercial Lead</p>
-                      <p className="text-muted-foreground">Major global consumer healthcare company</p>
+                      <p className="font-medium">Business Unit Head</p>
+                      <p className="text-muted-foreground">Major consumer healthcare and pharma</p>
                     </div>
                   </div>
                 </div>
