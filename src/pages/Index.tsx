@@ -365,12 +365,12 @@ const Index = () => {
                 See if this is a right fit <ArrowRight className="h-4 w-4" />
               </Button>
               <Button
-                asChild
                 size="lg"
                 variant="outline"
                 className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                onClick={() => setSignupOpen(true)}
               >
-                <Link to="/demo">Explore the live demo</Link>
+                Explore the live demo
               </Button>
             </div>
           </CardContent>
