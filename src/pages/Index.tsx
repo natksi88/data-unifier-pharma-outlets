@@ -74,10 +74,6 @@ const Index = () => {
               Turn fragmented field data into{" "}
               <span className="text-gradient">commercial advantage.</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              EngageRx gives commercial pharma teams two AI-native products to consolidate sell-out
-              data automatically and engage every HCP, every day.
-            </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button
                 size="lg"
@@ -95,6 +91,75 @@ const Index = () => {
               <span className="flex items-center gap-1.5"><Zap className="h-3.5 w-3.5" /> Live in &lt; 2 weeks</span>
               <span className="flex items-center gap-1.5"><LineChart className="h-3.5 w-3.5" /> Measurable revenue uplift</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Two products intro */}
+      <section className="border-t border-border/60 bg-card/20 py-16">
+        <div className="container">
+          <div className="mx-auto max-w-2xl text-center">
+            <Badge variant="outline" className="gap-1.5">
+              <Sparkles className="h-3 w-3 text-primary" /> Two products. One commercial engine.
+            </Badge>
+            <p className="mt-5 text-lg text-muted-foreground sm:text-xl">
+              EngageRx gives commercial pharma teams{" "}
+              <span className="font-semibold text-foreground">two AI-native products</span> to{" "}
+              <span className="font-semibold text-foreground">consolidate sell-out data automatically</span>{" "}
+              and <span className="font-semibold text-foreground">engage every HCP, every day</span>.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
+            <a href="#unifysales" className="group">
+              <Card className="h-full border-primary/20 transition-smooth hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-glow">
+                <CardContent className="flex h-full flex-col p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground shadow-glow">
+                      <Inbox className="h-4 w-4" />
+                    </div>
+                    <Badge variant="secondary" className="font-mono text-[10px]">Product 01</Badge>
+                  </div>
+                  <h3 className="mt-4 text-2xl font-semibold">UnifySales</h3>
+                  <p className="mt-1 text-sm font-medium text-primary">Consolidate sell-out data</p>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    Ingest sales reports from every outlet, in every format — get one clean,
+                    standardized dataset.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary transition-smooth group-hover:gap-2">
+                    Explore UnifySales <ArrowRight className="h-4 w-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </a>
+
+            <div className="flex items-center justify-center">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-background text-xs font-semibold text-primary shadow-sm md:h-12 md:w-12">
+                +
+              </div>
+            </div>
+
+            <a href="#aisa" className="group">
+              <Card className="h-full border-primary/20 transition-smooth hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-glow">
+                <CardContent className="flex h-full flex-col p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground shadow-glow">
+                      <Bot className="h-4 w-4" />
+                    </div>
+                    <Badge variant="secondary" className="font-mono text-[10px]">Product 02</Badge>
+                  </div>
+                  <h3 className="mt-4 text-2xl font-semibold">AISA</h3>
+                  <p className="mt-1 text-sm font-medium text-primary">Engage every HCP</p>
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    An AI chat bot that answers HCPs, shares materials, and helps them place
+                    orders — 24/7.
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-primary transition-smooth group-hover:gap-2">
+                    Explore AISA <ArrowRight className="h-4 w-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </a>
           </div>
         </div>
       </section>
