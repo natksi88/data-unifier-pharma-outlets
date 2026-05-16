@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -14,12 +15,17 @@ import {
   LineChart,
   ShieldCheck,
   Zap,
+  Newspaper,
+  ExternalLink,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { FitQuizDialog } from "@/components/FitQuizDialog";
 
 const Index = () => {
+  const [quizOpen, setQuizOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-gradient-mesh">
       {/* Nav */}
@@ -30,57 +36,63 @@ const Index = () => {
               <Workflow className="h-4 w-4" />
             </div>
             <div className="leading-tight">
-              <p className="text-base font-semibold">Pharos</p>
+              <p className="text-base font-semibold">EngageRx</p>
               <p className="text-[11px] text-muted-foreground">AI for commercial pharma</p>
             </div>
           </div>
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
             <a href="#unifysales" className="transition-smooth hover:text-foreground">UnifySales</a>
             <a href="#aisa" className="transition-smooth hover:text-foreground">AISA</a>
-            <a href="#proof" className="transition-smooth hover:text-foreground">Customers</a>
+            <a href="#press" className="transition-smooth hover:text-foreground">Press</a>
           </nav>
           <div className="flex items-center gap-2">
-            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-              <a href="#contact">Talk to sales</a>
-            </Button>
-            <Button asChild size="sm" className="bg-gradient-primary shadow-glow">
-              <Link to="/demo">
-                See live demo <ArrowRight className="h-4 w-4" />
-              </Link>
+            <Button
+              size="sm"
+              className="bg-gradient-primary shadow-glow"
+              onClick={() => setQuizOpen(true)}
+            >
+              See if it's a fit <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="container py-20 sm:py-28">
-        <div className="mx-auto max-w-3xl text-center">
-          <Badge variant="secondary" className="mb-5 gap-1.5">
-            <Sparkles className="h-3 w-3 text-primary" />
-            Trusted by leading consumer healthcare brands
-          </Badge>
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-            Turn fragmented field data into{" "}
-            <span className="text-gradient">commercial advantage.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Pharos gives commercial pharma teams two AI-native products to consolidate sell-out
-            data automatically and engage every HCP, every day.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="bg-gradient-primary shadow-glow">
-              <Link to="/demo">
-                See UnifySales in action <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href="#contact">Book a strategy call</a>
-            </Button>
-          </div>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Enterprise-grade security</span>
-            <span className="flex items-center gap-1.5"><Zap className="h-3.5 w-3.5" /> Live in &lt; 2 weeks</span>
-            <span className="flex items-center gap-1.5"><LineChart className="h-3.5 w-3.5" /> Measurable revenue uplift</span>
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-32 left-1/2 h-[480px] w-[820px] -translate-x-1/2 rounded-full bg-gradient-primary opacity-20 blur-3xl" />
+        </div>
+        <div className="container py-20 sm:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge variant="secondary" className="mb-5 gap-1.5">
+              <Sparkles className="h-3 w-3 text-primary" />
+              Trusted by leading consumer healthcare brands
+            </Badge>
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
+              Turn fragmented field data into{" "}
+              <span className="text-gradient">commercial advantage.</span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
+              EngageRx gives commercial pharma teams two AI-native products to consolidate sell-out
+              data automatically and engage every HCP, every day.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Button
+                size="lg"
+                className="bg-gradient-primary shadow-glow"
+                onClick={() => setQuizOpen(true)}
+              >
+                See if this is a right fit for your team <ArrowRight className="h-4 w-4" />
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href="#aisa">See AISA in action</a>
+              </Button>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Enterprise-grade security</span>
+              <span className="flex items-center gap-1.5"><Zap className="h-3.5 w-3.5" /> Live in &lt; 2 weeks</span>
+              <span className="flex items-center gap-1.5"><LineChart className="h-3.5 w-3.5" /> Measurable revenue uplift</span>
+            </div>
           </div>
         </div>
       </section>
@@ -119,7 +131,7 @@ const Index = () => {
                 {[
                   "Email-in ingestion from any POS or distributor format",
                   "AI column mapping unifies SKUs across thousands of outlets",
-                  "One-click exports per outlet, SKU, region or rep",
+                  "One-click exports per distributor, brand, region, or rep",
                 ].map((v) => (
                   <li key={v} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
@@ -129,13 +141,11 @@ const Index = () => {
               </ul>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild className="bg-gradient-primary shadow-glow">
-                  <Link to="/demo">
-                    Try the live demo <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <a href="#proof">Read the case study</a>
+                <Button
+                  className="bg-gradient-primary shadow-glow"
+                  onClick={() => setQuizOpen(true)}
+                >
+                  See if this is a right fit for your team <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -174,9 +184,39 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="mt-5 grid grid-cols-3 gap-3 text-center">
-                  <Stat label="Outlets unified" value="1,000+" />
+                  <Stat label="Outlets unified" value="10,000+" />
                   <Stat label="Hours saved / mo" value="120h" />
                   <Stat label="Data accuracy" value="99.8%" />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Customer story embedded under UnifySales */}
+          <div className="mx-auto mt-16 max-w-4xl">
+            <Card className="overflow-hidden border-primary/20 shadow-elegant">
+              <CardContent className="grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.4fr_1fr]">
+                <div>
+                  <Badge variant="secondary" className="gap-1.5"><Users className="h-3 w-3" /> Customer story</Badge>
+                  <Quote className="mt-4 h-8 w-8 text-primary/40" />
+                  <p className="mt-3 text-lg font-medium leading-relaxed sm:text-xl">
+                    "UnifySales consolidates thousands of general trade outlets' data for us,
+                    saving us weeks of productivity every month."
+                  </p>
+                  <div className="mt-6 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-primary text-sm font-semibold text-primary-foreground">
+                      CH
+                    </div>
+                    <div className="text-sm">
+                      <p className="font-medium">Commercial Lead</p>
+                      <p className="text-muted-foreground">Major global consumer healthcare company</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="grid gap-3">
+                  <ResultStat icon={Users} value="10,000+" label="GT outlets unified" />
+                  <ResultStat icon={Clock} value="Weeks" label="Of productivity saved monthly" />
+                  <ResultStat icon={CheckCircle2} value="100%" label="Field force on incentive tracking" />
                 </div>
               </CardContent>
             </Card>
@@ -184,41 +224,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social proof */}
-      <section id="proof" className="container py-20">
-        <div className="mx-auto max-w-4xl">
-          <Badge variant="secondary" className="gap-1.5"><Users className="h-3 w-3" /> Customer story</Badge>
-          <Card className="mt-5 overflow-hidden border-primary/20 shadow-elegant">
-            <CardContent className="grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.4fr_1fr]">
-              <div>
-                <Quote className="h-8 w-8 text-primary/40" />
-                <p className="mt-3 text-lg font-medium leading-relaxed sm:text-xl">
-                  "UnifySales consolidates thousands of general trade outlets' data for us every
-                  week. Our field force now has clear incentive compensation and live tracking —
-                  and we've seen real revenue uplift since rolling it out."
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-primary text-sm font-semibold text-primary-foreground">
-                    CH
-                  </div>
-                  <div className="text-sm">
-                    <p className="font-medium">Commercial Lead</p>
-                    <p className="text-muted-foreground">Major global consumer healthcare company</p>
-                  </div>
-                </div>
-              </div>
-              <div className="grid gap-3 sm:grid-cols-1">
-                <ResultStat icon={TrendingUp} value="+14%" label="Revenue uplift in 6 months" />
-                <ResultStat icon={Users} value="3,200" label="General trade outlets unified" />
-                <ResultStat icon={CheckCircle2} value="100%" label="Field force on incentive tracking" />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
       {/* Product 2: AISA */}
-      <section id="aisa" className="border-t border-border/60 bg-card/30 py-20">
+      <section id="aisa" className="border-t border-border/60 py-20">
         <div className="container">
           <div className="grid items-start gap-12 lg:grid-cols-2">
             {/* Visual */}
@@ -232,9 +239,12 @@ const Index = () => {
                     Of course, Dr. Tan. Here's the updated guideline with the new pediatric dosing
                     table — would you like me to email a copy to your clinic?
                   </ChatBubble>
-                  <ChatBubble from="hcp">Yes please. Also, any samples available?</ChatBubble>
+                  <ChatBubble from="hcp">
+                    Yes please. I'd also like to restock our Flavettes Vitamin C.
+                  </ChatBubble>
                   <ChatBubble from="aisa">
-                    Sent. I've also requested 20 samples to be delivered to Klinik Tan by Thursday.
+                    Done — I've placed an order for 3 cartons of Flavettes VC 1000mg through your
+                    usual distributor, arriving Thursday.
                   </ChatBubble>
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-3 text-center">
@@ -251,11 +261,11 @@ const Index = () => {
                 Product 02 · AISA
               </Badge>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-                Reach every HCP your reps can't.
+                The AI chat bot that reaches every HCP your reps can't.
               </h2>
               <p className="mt-4 text-muted-foreground">
-                AISA is your AI sales assistant for healthcare professionals — answering questions,
-                sharing materials and taking sample requests, instantly and around the clock.
+                AISA is an AI chat bot for healthcare professionals — answering questions, sharing
+                materials, and helping HCPs put in orders, instantly and around the clock.
               </p>
 
               <div className="mt-6 rounded-xl border border-destructive/20 bg-destructive/5 p-4">
@@ -291,13 +301,41 @@ const Index = () => {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild className="bg-gradient-primary shadow-glow">
-                  <a href="#contact">Request an AISA pilot <ArrowRight className="h-4 w-4" /></a>
-                </Button>
-                <Button asChild variant="outline">
-                  <a href="#contact">Talk to our team</a>
+                  <a href="#contact">See AISA in action <ArrowRight className="h-4 w-4" /></a>
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Press */}
+      <section id="press" className="border-t border-border/60 bg-card/30 py-20">
+        <div className="container">
+          <div className="mx-auto max-w-4xl text-center">
+            <Badge variant="secondary" className="gap-1.5">
+              <Newspaper className="h-3 w-3 text-primary" /> In the press
+            </Badge>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Recognized as a rising AI startup.
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              EngageRx was named a winner of Alpha Startups Cohort 64, signalling the rising
+              momentum of AI-native commercial pharma tooling.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-2">
+            <PressCard
+              source="Digital News Asia"
+              title="Fluxion and EngageRx win Alpha Startups Cohort 64, signalling rising momentum of AI startups"
+              href="https://www.digitalnewsasia.com/startups/fluxion-and-engagerx-win-alpha-startups-cohort-64-signalling-rising-momentum-ai-startups"
+            />
+            <PressCard
+              source="1337 Ventures"
+              title="Fluxion and EngageRx win Alpha Startups Cohort 64"
+              href="https://1337.ventures/fluxion-and-engagerx-win-alpha-startups-cohort-64/"
+            />
           </div>
         </div>
       </section>
@@ -311,16 +349,26 @@ const Index = () => {
                 Ready to unify your data and unlock every HCP?
               </h2>
               <p className="mt-3 max-w-xl text-primary-foreground/85">
-                See UnifySales and AISA tailored to your portfolio in a 30-minute working session
-                with our team.
+                Tell us about your setup in 60 seconds — we'll come back with a tailored demo of
+                UnifySales and AISA for your portfolio.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <Button asChild size="lg" variant="secondary" className="shadow-md">
-                <Link to="/demo">Explore the live demo <ArrowRight className="h-4 w-4" /></Link>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="shadow-md"
+                onClick={() => setQuizOpen(true)}
+              >
+                See if this is a right fit <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                <a href="mailto:hello@pharos.ai">Book a strategy call</a>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              >
+                <Link to="/demo">Explore the live demo</Link>
               </Button>
             </div>
           </CardContent>
@@ -329,14 +377,17 @@ const Index = () => {
 
       <footer className="border-t border-border/60 py-8">
         <div className="container flex flex-col items-center justify-between gap-3 text-xs text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} Pharos. AI for commercial pharma.</p>
+          <p>© {new Date().getFullYear()} EngageRx. AI for commercial pharma.</p>
           <div className="flex gap-5">
             <a href="#unifysales" className="hover:text-foreground">UnifySales</a>
             <a href="#aisa" className="hover:text-foreground">AISA</a>
+            <a href="#press" className="hover:text-foreground">Press</a>
             <a href="#contact" className="hover:text-foreground">Contact</a>
           </div>
         </div>
       </footer>
+
+      <FitQuizDialog open={quizOpen} onOpenChange={setQuizOpen} />
     </main>
   );
 };
@@ -366,6 +417,35 @@ const ResultStat = ({
       <p className="text-xs text-muted-foreground">{label}</p>
     </div>
   </div>
+);
+
+const PressCard = ({
+  source,
+  title,
+  href,
+}: {
+  source: string;
+  title: string;
+  href: string;
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noreferrer noopener"
+    className="group relative overflow-hidden rounded-xl border border-border bg-background p-6 transition-smooth hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-glow"
+  >
+    <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-primary opacity-0 transition-smooth group-hover:opacity-100" />
+    <div className="flex items-center justify-between">
+      <Badge variant="secondary" className="gap-1.5">
+        <Newspaper className="h-3 w-3 text-primary" /> {source}
+      </Badge>
+      <ExternalLink className="h-4 w-4 text-muted-foreground transition-smooth group-hover:text-primary" />
+    </div>
+    <p className="mt-4 text-sm font-medium leading-snug">{title}</p>
+    <p className="mt-3 text-xs text-primary opacity-0 transition-smooth group-hover:opacity-100">
+      Read the article →
+    </p>
+  </a>
 );
 
 const ChatBubble = ({ from, children }: { from: "hcp" | "aisa"; children: React.ReactNode }) => (
