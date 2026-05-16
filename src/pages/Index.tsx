@@ -390,6 +390,7 @@ const Index = () => {
       </footer>
 
       <FitQuizDialog open={quizOpen} onOpenChange={setQuizOpen} />
+      <SignupDialog open={signupOpen} onOpenChange={setSignupOpen} />
     </main>
   );
 };
