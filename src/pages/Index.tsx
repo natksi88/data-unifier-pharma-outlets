@@ -22,9 +22,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FitQuizDialog } from "@/components/FitQuizDialog";
+import { SignupDialog } from "@/components/SignupDialog";
 
 const Index = () => {
   const [quizOpen, setQuizOpen] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
 
   return (
     <main className="min-h-screen bg-gradient-mesh">
