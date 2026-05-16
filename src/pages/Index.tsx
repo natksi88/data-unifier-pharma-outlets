@@ -74,10 +74,6 @@ const Index = () => {
               Turn fragmented field data into{" "}
               <span className="text-gradient">commercial advantage.</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              EngageRx gives commercial pharma teams two AI-native products to consolidate sell-out
-              data automatically and engage every HCP, every day.
-            </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button
                 size="lg"
