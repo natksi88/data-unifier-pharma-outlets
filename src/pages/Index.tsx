@@ -22,9 +22,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FitQuizDialog } from "@/components/FitQuizDialog";
+import { SignupDialog } from "@/components/SignupDialog";
 
 const Index = () => {
   const [quizOpen, setQuizOpen] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
 
   return (
     <main className="min-h-screen bg-gradient-mesh">
@@ -363,12 +365,12 @@ const Index = () => {
                 See if this is a right fit <ArrowRight className="h-4 w-4" />
               </Button>
               <Button
-                asChild
                 size="lg"
                 variant="outline"
                 className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                onClick={() => setSignupOpen(true)}
               >
-                <Link to="/demo">Explore the live demo</Link>
+                Explore the live demo
               </Button>
             </div>
           </CardContent>
@@ -388,6 +390,7 @@ const Index = () => {
       </footer>
 
       <FitQuizDialog open={quizOpen} onOpenChange={setQuizOpen} />
+      <SignupDialog open={signupOpen} onOpenChange={setSignupOpen} />
     </main>
   );
 };
