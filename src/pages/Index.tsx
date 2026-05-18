@@ -83,7 +83,7 @@ const Index = () => {
                 className="bg-gradient-primary shadow-glow"
                 onClick={() => setQuizOpen(true)}
               >
-                See if this is a right fit for your team <ArrowRight className="h-4 w-4" />
+                See if it's a fit <ArrowRight className="h-4 w-4" />
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a href="#aisa">See AISA in action</a>
