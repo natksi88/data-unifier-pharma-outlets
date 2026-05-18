@@ -86,7 +86,7 @@ const Index = () => {
                 See if it's a fit <ArrowRight className="h-4 w-4" />
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href="#aisa">See AISA in action</a>
+                <Link to="/aisa">See AISA in action</Link>
               </Button>
             </div>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-muted-foreground">
