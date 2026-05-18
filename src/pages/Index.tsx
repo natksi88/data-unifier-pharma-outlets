@@ -103,7 +103,7 @@ const Index = () => {
               EngageRx gives commercial pharma teams{" "}
               <span className="font-semibold text-foreground">two AI-native products</span> to{" "}
               <span className="font-semibold text-foreground">consolidate sell-out data automatically</span>{" "}
-              and <span className="font-semibold text-foreground">engage every HCP, every day</span>.
+              and <span className="font-semibold text-foreground">engage long-tail doctors, cover all market segments</span>.
             </p>
           </div>
 
