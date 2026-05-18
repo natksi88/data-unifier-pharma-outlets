@@ -68,16 +68,12 @@ const Index = () => {
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant="secondary" className="mb-5 gap-1.5">
               <Sparkles className="h-3 w-3 text-primary" />
-              Trusted by leading Pharma and consumer healthcare brands
+              Trusted by leading consumer healthcare brands
             </Badge>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-              Unify your sales data.{" "}
-              <span className="text-gradient">Engage every HCP.</span>
+              Turn fragmented field data into{" "}
+              <span className="text-gradient">commercial advantage.</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-              Two AI products for commercial pharma — one to consolidate sell-out data automatically,
-              one to reach the HCPs your field force can't.
-            </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button
                 size="lg"
