@@ -134,7 +134,7 @@ const Index = () => {
                   </span>
                 </CardContent>
               </Card>
-            </a>
+            </Link>
 
             <div className="flex items-center justify-center">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-background text-xs font-semibold text-primary shadow-sm md:h-12 md:w-12">
