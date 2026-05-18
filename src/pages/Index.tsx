@@ -238,8 +238,8 @@ const Index = () => {
         <div className="container flex flex-col items-center justify-between gap-3 text-xs text-muted-foreground sm:flex-row">
           <p>© {new Date().getFullYear()} EngageRx. AI for commercial pharma.</p>
           <div className="flex gap-5">
-            <a href="#unifysales" className="hover:text-foreground">UnifySales</a>
-            <a href="#aisa" className="hover:text-foreground">AISA</a>
+            <Link to="/unifysales" className="hover:text-foreground">UnifySales</Link>
+            <Link to="/aisa" className="hover:text-foreground">AISA</Link>
             <a href="#press" className="hover:text-foreground">Press</a>
             <a href="#contact" className="hover:text-foreground">Contact</a>
           </div>
