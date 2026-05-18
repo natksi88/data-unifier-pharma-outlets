@@ -114,7 +114,7 @@ const Index = () => {
           </div>
 
           <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
-            <a href="#unifysales" className="group">
+            <Link to="/unifysales" className="group">
               <Card className="h-full border-primary/20 transition-smooth hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-glow">
                 <CardContent className="flex h-full flex-col p-6">
                   <div className="flex items-center gap-3">
