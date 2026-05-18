@@ -162,7 +162,7 @@ const Index = () => {
                   </span>
                 </CardContent>
               </Card>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
