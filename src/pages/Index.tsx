@@ -71,11 +71,11 @@ const Index = () => {
               Trusted by leading pharma and consumer health brands
             </Badge>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
-              See more.{" "}
-              <span className="text-gradient">Sell more.</span>
+              The AI sales enablement{" "}
+              <span className="text-gradient">platform for pharma.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              Two AI products for commercial pharma — one to see every sale, one to reach every HCP.
+              Equip commercial teams with the data and AI reach they need to grow every brand, in every channel.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button
