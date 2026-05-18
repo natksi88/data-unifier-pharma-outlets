@@ -75,7 +75,7 @@ const Index = () => {
               <span className="text-gradient">platform for pharma.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              Equip commercial teams with the data and AI reach they need to grow every brand, in every channel.
+              Equip commercial teams with the solutions to gain more insight, achieve more outreach, and reach maximum potential.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button
