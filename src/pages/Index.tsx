@@ -142,7 +142,7 @@ const Index = () => {
               </div>
             </div>
 
-            <a href="#aisa" className="group">
+            <Link to="/aisa" className="group">
               <Card className="h-full border-primary/20 transition-smooth hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-glow">
                 <CardContent className="flex h-full flex-col p-6">
                   <div className="flex items-center gap-3">
