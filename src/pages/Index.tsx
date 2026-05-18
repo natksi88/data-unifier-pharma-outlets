@@ -252,33 +252,6 @@ const Index = () => {
   );
 };
 
-const Stat = ({ label, value }: { label: string; value: string }) => (
-  <div className="rounded-lg border border-border bg-background p-3">
-    <p className="text-base font-semibold text-foreground">{value}</p>
-    <p className="mt-0.5 text-[11px] text-muted-foreground">{label}</p>
-  </div>
-);
-
-const ResultStat = ({
-  icon: Icon,
-  value,
-  label,
-}: {
-  icon: React.ComponentType<{ className?: string }>;
-  value: string;
-  label: string;
-}) => (
-  <div className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
-    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-primary">
-      <Icon className="h-4 w-4" />
-    </div>
-    <div>
-      <p className="text-lg font-semibold">{value}</p>
-      <p className="text-xs text-muted-foreground">{label}</p>
-    </div>
-  </div>
-);
-
 const PressCard = ({
   source,
   title,
@@ -306,23 +279,6 @@ const PressCard = ({
       Read the article →
     </p>
   </a>
-);
-
-const ChatBubble = ({ from, children }: { from: "hcp" | "aisa"; children: React.ReactNode }) => (
-  <div className={`flex ${from === "aisa" ? "justify-start" : "justify-end"}`}>
-    <div
-      className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm ${
-        from === "aisa"
-          ? "rounded-bl-sm bg-accent text-foreground"
-          : "rounded-br-sm bg-gradient-primary text-primary-foreground"
-      }`}
-    >
-      {from === "aisa" && (
-        <p className="mb-1 text-[10px] font-medium uppercase tracking-wider text-primary">AISA</p>
-      )}
-      {children}
-    </div>
-  </div>
 );
 
 export default Index;
